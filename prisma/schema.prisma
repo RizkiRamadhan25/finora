@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                      String        @id @default(cuid())
+  name                    String
+  type                    String
+  provider                String?
+  openingBalance          BigInt
+  openingDate             String
+  icon                    String?
+  color                   String?
+  notes                   String?
+  isArchived              Boolean       @default(false)
+  createdAt               DateTime      @default(now())
+  updatedAt               DateTime      @updatedAt
+  transactions            Transaction[] @relation("TransactionAccount")
+  destinationTransactions Transaction[] @relation("TransactionDestination")
+
+  @@index([isArchived, name])
+}
+
+model Category {
+  id             String        @id @default(cuid())
+  name           String
+  normalizedName String
+  type           String
+  systemKey      String?       @unique
+  icon           String?
+  color          String?
+  isArchived     Boolean       @default(false)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  transactions   Transaction[]
+
+  @@unique([type, normalizedName])
+  @@index([type, isArchived])
+}
+
+model Transaction {
+  id                    String   @id @default(cuid())
+  type                  String
+  amount                BigInt
+  accountId             String
+  destinationAccountId  String?
+  categoryId            String?
+  adjustmentDirection   String?
+  description           String
+  notes                 String?
+  transactionDate       String
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  account               Account  @relation("TransactionAccount", fields: [accountId], references: [id], onDelete: Restrict)
+  destinationAccount    Account? @relation("TransactionDestination", fields: [destinationAccountId], references: [id], onDelete: Restrict)
+  category              Category? @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+
+  @@index([transactionDate])
+  @@index([accountId, transactionDate])
+  @@index([destinationAccountId, transactionDate])
+  @@index([categoryId, transactionDate])
+  @@index([type, transactionDate])
+}
+
+model AppSetting {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @updatedAt
+}

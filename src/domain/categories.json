@@ -1,0 +1,18 @@
+[
+  {"key":"food_beverage","type":"EXPENSE","id":"Makanan & Minuman","en":"Food & Beverage","icon":"utensils","color":"#4d63e5"},
+  {"key":"transportation","type":"EXPENSE","id":"Transportasi","en":"Transportation","icon":"car","color":"#148f86"},
+  {"key":"shopping","type":"EXPENSE","id":"Belanja","en":"Shopping","icon":"bag","color":"#9754c6"},
+  {"key":"bills","type":"EXPENSE","id":"Tagihan","en":"Bills","icon":"receipt","color":"#cf7338"},
+  {"key":"health","type":"EXPENSE","id":"Kesehatan","en":"Health","icon":"heart","color":"#c74d79"},
+  {"key":"education","type":"EXPENSE","id":"Pendidikan","en":"Education","icon":"book","color":"#5276ad"},
+  {"key":"entertainment","type":"EXPENSE","id":"Hiburan","en":"Entertainment","icon":"ticket","color":"#785ab8"},
+  {"key":"subscription","type":"EXPENSE","id":"Langganan","en":"Subscription","icon":"repeat","color":"#a67826"},
+  {"key":"others_expense","type":"EXPENSE","id":"Lainnya","en":"Others","icon":"tag","color":"#677589"},
+  {"key":"salary","type":"INCOME","id":"Gaji","en":"Salary","icon":"wallet","color":"#078054"},
+  {"key":"allowance","type":"INCOME","id":"Uang Saku","en":"Allowance","icon":"coins","color":"#148f86"},
+  {"key":"freelance","type":"INCOME","id":"Freelance","en":"Freelance","icon":"briefcase","color":"#4972c6"},
+  {"key":"business","type":"INCOME","id":"Usaha","en":"Business","icon":"briefcase","color":"#7556ba"},
+  {"key":"bonus","type":"INCOME","id":"Bonus","en":"Bonus","icon":"coins","color":"#976321"},
+  {"key":"gift","type":"INCOME","id":"Hadiah","en":"Gift","icon":"gift","color":"#ba4c76"},
+  {"key":"others_income","type":"INCOME","id":"Lainnya","en":"Others","icon":"tag","color":"#677589"}
+]

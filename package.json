@@ -1,0 +1,51 @@
+{
+  "name": "finora",
+  "version": "1.0.0",
+  "private": true,
+  "engines": { "node": ">=22.12.0 <23 || >=24.0.0 <25" },
+  "scripts": {
+    "postinstall": "prisma generate",
+    "dev": "node scripts/finora.mjs dev",
+    "build": "node scripts/finora.mjs build",
+    "start": "node scripts/finora.mjs start",
+    "db:setup": "node scripts/finora.mjs setup",
+    "db:validate": "node scripts/finora.mjs validate",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "5.2.2",
+    "@prisma/client": "6.19.3",
+    "@radix-ui/react-dialog": "1.1.15",
+    "geist": "1.5.1",
+    "lucide-react": "0.544.0",
+    "next": "15.5.29",
+    "react": "19.1.5",
+    "react-dom": "19.1.5",
+    "react-hook-form": "7.62.0",
+    "recharts": "3.2.1",
+    "server-only": "0.0.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "@types/node": "22.18.6",
+    "@types/react": "19.1.16",
+    "@types/react-dom": "19.1.9",
+    "autoprefixer": "10.4.21",
+    "postcss": "8.5.33",
+    "prisma": "6.19.3",
+    "tailwindcss": "3.4.19",
+    "typescript": "5.9.3",
+    "vite": "7.3.8",
+    "vitest": "4.1.12"
+  },
+  "overrides": {
+    "postcss": "$postcss",
+    "@prisma/config": {
+      "deepmerge-ts": "8.0.2",
+      "effect": "3.22.5"
+    }
+  }
+}
